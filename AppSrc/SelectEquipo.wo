@@ -77,7 +77,7 @@ Object oSelectEquipo is a cWebView
         End_Object 
 
 // ToDo: Fill in the from-parent child Select view object name for navigate forward
-//        WebRegisterPath ntNavigateForward oSelectEquipo
+        //WebRegisterPath ntNavigateForward oSelectEquipo
 
         Procedure OnRowClick String sRowId
             tWebNavigateData NavigateData

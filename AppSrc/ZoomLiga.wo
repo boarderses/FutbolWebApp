@@ -67,7 +67,7 @@ Object oZoomLiga is a cWebView
                 Send SetActionButtons
             End_Procedure
 
-        End_Object 
+        End_Object
 
         Object oDeleteBtn is a cWebMenuItem
             Set psCSSClass to "WebDeleteMenuItem"

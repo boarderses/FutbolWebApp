@@ -1,5 +1,5 @@
 Compiling Program: C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\WebApp.src
-Memory Available: 15789887488
+Memory Available: 7892713472
 1>Use AllWebAppClasses.pkg
 Using pre-compiled package ALLWEBAPPCLASSES.PKG
 Including file: AllWebAppClasses.x64.pkd    (C:\Program Files\DataFlex 25.0\Pkg\AllWebAppClasses.x64.pkd)
@@ -1481,7 +1481,7 @@ Including file: Dashboard.wo    (C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\D
 37363>>>    
 37363>>>        Object oTiles_grp is a cWebGroup
 37365>>>            Set piColumnSpan to 8
-37366>>>            Set pbShowBorder to True
+37366>>>            Set pbShowBorder to False
 37367>>>            Set pbShowCaption to False
 37368>>>            Set piColumnCount to 12
 37369>>>            Set piColumnIndex to 8
@@ -2830,7 +2830,7 @@ Including file: SelectEquipo.wo    (C:\DataFlex 25.0 Examples\FutbolWebApp\AppSr
 38513>>>        End_Object 
 38514>>>
 38514>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
-38514>>>//        WebRegisterPath ntNavigateForward oSelectEquipo
+38514>>>        //WebRegisterPath ntNavigateForward oSelectEquipo
 38514>>>
 38514>>>        Procedure OnRowClick String sRowId
 38517>>>            tWebNavigateData NavigateData
@@ -3318,7 +3318,7 @@ Including file: ZoomLiga.wo    (C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\Zo
 38914>>>                Send SetActionButtons
 38915>>>            End_Procedure
 38916>>>
-38916>>>        End_Object 
+38916>>>        End_Object
 38917>>>
 38917>>>        Object oDeleteBtn is a cWebMenuItem
 38919>>>            Set psCSSClass to "WebDeleteMenuItem"
@@ -3410,7 +3410,7 @@ Including file: ZoomLiga.wo    (C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\Zo
 38987>Send StartWebApp of oWebApp
 38988>
 Summary
-Memory Available: 15792103424
+Memory Available: 7883329536
 Total Warnings : 0
 Total Errors   : 0
 Total Symbols  : 25616
