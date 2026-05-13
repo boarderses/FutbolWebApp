@@ -1,0 +1,10 @@
+*.exe
+*.dbg
+*.tmp
+*.log
+
+IdeSrc/*.loc
+IdeSrc/Backup/
+
+Programs/*.exe
+AppHtml/CssCache/

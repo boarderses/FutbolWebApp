@@ -1,0 +1,96 @@
+[Workspace]
+CurrentProject=WebApp.src
+Location=C:\DataFlex 25.0 Examples\FutbolWebApp\IdeSrc\board_Studio.dsk
+CreateNew=3
+[TabWindows]
+GroupCount=1
+HorizontalGroups=1
+[TabGroup0]
+GroupSize=40
+SelectedTab=7
+[Window0]
+Filename=Workspace Dashboard
+ViewType=101
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+TabIndex=0
+TabGroup=0
+[Window1]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\ZoomEquipo.wo
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=0
+CursorColumn=0
+TabIndex=4
+TabGroup=0
+[Window2]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\WebApp.src
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=58
+CursorColumn=35
+TabIndex=1
+TabGroup=0
+[Window3]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\Dashboard.wo
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=46
+CursorColumn=33
+TabIndex=2
+TabGroup=0
+[Window4]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\SelectLiga.wo
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=0
+CursorColumn=0
+TabIndex=5
+TabGroup=0
+[Window5]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\SelectEntrenador.wo
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=85
+CursorColumn=47
+TabIndex=6
+TabGroup=0
+[Window6]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\SelectEquipo.wo
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=138
+CursorColumn=35
+TabIndex=3
+TabGroup=0
+[Window7]
+Filename=C:\DataFlex 25.0 Examples\FutbolWebApp\AppSrc\ZoomEntrenador.wo
+ViewType=1
+Top=26
+Left=0
+Bottom=1128
+Right=1747
+CursorLine=135
+CursorColumn=0
+TabIndex=7
+TabGroup=0
