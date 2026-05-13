@@ -7,7 +7,9 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
-
+Use SelectEquipo.wo
+//
+Use cequipoDataDictionary.dd
 Use cligaDataDictionary.dd
 
 Object oZoomLiga is a cWebView
@@ -21,7 +23,11 @@ Object oZoomLiga is a cWebView
 
     Object oliga_DD is a cligaDataDictionary
     End_Object 
-
+    //
+    Object oequipo_DD is a cequipoDataDictionary
+    Set DDO_Server to oliga_DD
+    End_Object
+    //
     Set Main_DD To oliga_DD
     Set Server  To oliga_DD
 
@@ -45,8 +51,8 @@ Object oZoomLiga is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "Pais"
         End_Object 
-    End_Object 
-
+    End_Object
+    
     Object oActionGroup is a cWebMenuGroup
 
         Object oSaveBtn is a cWebMenuItem
@@ -58,7 +64,18 @@ Object oZoomLiga is a cWebView
             End_Procedure
 
         End_Object 
+//
+        Object oEquiposBtn is a cWebMenuItem
+            Set psCaption to "Ver equipos"
 
+            WebRegisterPath ntNavigateForward oSelectEquipo
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+
+        End_Object
+//        
         Object oEditBtn is a cWebMenuItem
             Set psCSSClass to "WebEditMenuItem"
             Set psCaption to "Edit"
@@ -105,6 +122,7 @@ Object oZoomLiga is a cWebView
         WebSet pbRender of oSaveBtn to False
         WebSet pbRender of oCancelChangesBtn to False
         WebSet pbRender of oDeleteBtn to False
+        WebSet pbRender of oEquiposBtn to True
 
         If (NavigateData.bReadOnly) Begin
             WebSet pbRender of oEditBtn to True
