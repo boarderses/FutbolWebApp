@@ -7,10 +7,12 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebList.pkg
 Use SelectEquipo.wo
 //
 Use cequipoDataDictionary.dd
 Use cligaDataDictionary.dd
+Use cWebColumn.pkg
 
 Object oZoomLiga is a cWebView
     Set piColumnCount to 12
@@ -20,12 +22,14 @@ Object oZoomLiga is a cWebView
     Set pbShowCaption to False
     Set Verify_Save_Msg to 0
     Set piMaxWidth to 1024
-
+    
     Object oliga_DD is a cligaDataDictionary
     End_Object 
     //
     Object oequipo_DD is a cequipoDataDictionary
     Set DDO_Server to oliga_DD
+    Set Constrain_File to liga.File_Number
+    
     End_Object
     //
     Set Main_DD To oliga_DD
@@ -46,13 +50,34 @@ Object oZoomLiga is a cWebView
 
         Object oligaPais is a cWebForm
             Entry_Item liga.Pais
-            Set piColumnSpan to 10
+            Set piColumnSpan to 12
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
-            Set psLabel to "Pais"
-        End_Object 
+            Set psLabel to "País"
+        End_Object
+       
+    //
+        Object oEquiposList is a cWebList
+            Set Server to oequipo_DD          
+            
+            Set piColumnSpan to 12
+            Set pbFillHeight to False
+            Set pbShowHeader to True
+            Set piHeight to 200       
+            Set psCaption to "Equipos"
+            Set pbServerOnRowClick to False
+            
+
+        Object oEquipoNombre is a cWebColumn
+            Entry_Item equipo.Nombre        
+            Set psCaption to "Equipos de la liga"
+            Set piWidth to 200 
+                      
+        End_Object
+              
+        End_Object
     End_Object
-    
+    //    
     Object oActionGroup is a cWebMenuGroup
 
         Object oSaveBtn is a cWebMenuItem
@@ -108,6 +133,7 @@ Object oZoomLiga is a cWebView
         End_Object 
     End_Object 
 
+
     Procedure SetActionButtons
         tWebNavigateData NavigateData
         Boolean bHasRecord
@@ -143,6 +169,8 @@ Object oZoomLiga is a cWebView
     Procedure OnViewDeleted Handle hoDDO
         Send NavigateClose Self
     End_Procedure
+    
+    
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
         Case Begin
@@ -161,9 +189,11 @@ Object oZoomLiga is a cWebView
             Case Else // must be nfUndefined
 
         Case End
-
+        
         Send SetActionButtons
-
+        Send GridRefresh of oEquiposList
+                
     End_Procedure
+    
 
 End_Object 

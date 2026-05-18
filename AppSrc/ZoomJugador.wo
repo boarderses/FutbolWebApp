@@ -62,7 +62,8 @@ Object oZoomJugador is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
-        End_Object 
+        End_Object
+
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
