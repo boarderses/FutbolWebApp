@@ -140,6 +140,11 @@ Object oSelectEquipo is a cWebView
                 Move True to NavigateData.bNewRecord
             End_Procedure
 
+            Procedure OnGetNavigateBackData tWebNavigateData  ByRef NavigateData Handle hoBackToView
+                Forward Send OnGetNavigateBackData (&NavigateData) hoBackToView
+            End_Procedure
+            
+
         End_Object 
     End_Object 
 
