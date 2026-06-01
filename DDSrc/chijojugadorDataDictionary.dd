@@ -12,7 +12,7 @@ Class chijojugadorDataDictionary is a DataDictionary
 
         Set Add_Server_File to jugador.File_Number
 
-        
+        Set Add_Client_File to nietodehijos.File_Number
 
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True

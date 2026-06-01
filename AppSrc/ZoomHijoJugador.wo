@@ -62,7 +62,7 @@ Object oZoomHijoJugador is a cWebView
 
             Object oPage1 is a cWebTabPage
                 Set piColumnCount to 12
-                Set psCaption to "Tab Page Label"
+                Set psCaption to "Padre"
                 WebSetResponsive piColumnCount rmMobile to 4
 
                 Object ojugadorNombre is a cWebForm
