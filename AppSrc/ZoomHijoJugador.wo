@@ -23,24 +23,25 @@ Object oZoomHijoJugador is a cWebView
     Set pbShowCaption to False
     Set Verify_Save_Msg to 0
     Set piMaxWidth to 1024
+    
 
     Object oliga_DD is a cligaDataDictionary
     End_Object 
 
     Object oequipo_DD is a cequipoDataDictionary
-        Set DDO_Server To oliga_DD
+        Set DDO_Server to oliga_DD
     End_Object 
 
     Object ojugador_DD is a cjugadorDataDictionary
-        Set DDO_Server To oequipo_DD
+        Set DDO_Server to oequipo_DD
     End_Object 
 
     Object ohijojugador_DD is a chijojugadorDataDictionary
-        Set DDO_Server To ojugador_DD
+        Set DDO_Server to ojugador_DD
     End_Object 
 
-    Set Main_DD To ohijojugador_DD
-    Set Server  To ohijojugador_DD
+    Set Main_DD to ohijojugador_DD
+    Set Server  to ohijojugador_DD
 
 
     Object oWebMainPanel is a cWebPanel
@@ -82,7 +83,7 @@ Object oZoomHijoJugador is a cWebView
                     Set pbPromptButton to True
 
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
-//                    WebRegisterPath ntNavigateForward oSelectView
+                    WebRegisterPath ntNavigateForward oZoomHijoJugador
 
                     Procedure OnPrompt
                         Send NavigatePath
@@ -172,22 +173,22 @@ Object oZoomHijoJugador is a cWebView
     End_Procedure
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
-        Case Begin
-            Case (NavigateData.eNavigateType = nfFromMain)
+        //Case Begin
+            //Case (NavigateData.eNavigateType = nfFromMain)
                 // If from main, this is a propbably a main file Select to Zoom.
-                Case Break
+               // Case Break
 
-            Case (NavigateData.eNavigateType = nfFromParent)
+            //Case (NavigateData.eNavigateType = nfFromParent)
                 // If from parent, this is a constrained drill down.
-                Case Break
+                //Case Break
 
-            Case (NavigateData.eNavigateType = nfFromChild)
+            //Case (NavigateData.eNavigateType = nfFromChild)
                 // If from child, this is a probably a parent Zoom from a Zoom.
-                Case Break
+                //Case Break
 
-            Case Else // must be nfUndefined
+            //Case Else // must be nfUndefined
 
-        Case End
+       // Case End
 
         Send SetActionButtons
 

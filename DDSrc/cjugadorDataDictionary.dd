@@ -6,7 +6,7 @@ Open jugadorposicion
 Open equipo
 
 Object oDeviceTypeValidation is a CodeValidationTable
-    Set Type_Value to "DEVICETYPE"
+    Set Type_Value to "NACIONALIDAD"
 End_Object
 
 Class cjugadorDataDictionary is a DataDictionary
@@ -25,7 +25,8 @@ Class cjugadorDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
         
-        Set Field_Value_Table Field hijojugador.Name to oDeviceTypeValidation
+        
+        Set Field_Value_Table Field jugador.Nacionalidad to oDeviceTypeValidation
 
     End_Procedure
 

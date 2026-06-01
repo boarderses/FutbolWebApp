@@ -48,6 +48,8 @@ Object oSelectHijoJugador is a cWebView
         Set pbFillHeight to True
         Set pbShowHeader to False
         Set piSortColumn to 0
+        
+        WebRegisterPath ntNavigateForward oZoomHijoJugador
 
         Object ohijojugadorName is a cWebColumn
             Entry_Item hijojugador.Name
