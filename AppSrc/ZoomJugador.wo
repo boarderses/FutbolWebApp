@@ -11,6 +11,7 @@ Use cWebForm.pkg
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 Use cjugadorDataDictionary.dd
+Use cWebButton.pkg
 
 Object oZoomJugador is a cWebView
     Set piColumnCount to 12
@@ -63,6 +64,42 @@ Object oZoomJugador is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
         End_Object 
+        
+        Object oEquipoNombreForm is a cWebForm
+            Entry_Item equipo.Nombre
+            Set piColumnSpan to 10
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "Equipo"
+            Set pbPromptButton to True
+            
+            WebRegisterPath ntNavigateForward oSelectEquipo
+            
+            Procedure OnPrompt
+                Send NavigatePath
+            End_Procedure
+        End_Object 
+
+        Object oBotonLibre is a cWebButton
+            Set piColumnSpan to 0
+            Set psCaption to "Libre"
+        
+            Procedure OnClick
+                Send Clear of oequipo_DD
+            End_Procedure
+        End_Object
+        
+        Object oBtnEditarPosiciones is a cWebButton
+            Set piColumnSpan to 0
+            Set psCaption to "Editar Posiciones"
+            
+            WebRegisterPath ntNavigateForward oSelectJugadorPosicion
+
+            Procedure OnClick
+            Send NavigatePath
+        End_Procedure
+    End_Object
+             
 
     End_Object 
 

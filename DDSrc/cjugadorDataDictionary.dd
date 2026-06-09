@@ -6,7 +6,7 @@ Open jugadorposicion
 Open equipo
 
 Object oDeviceTypeValidation is a CodeValidationTable
-    Set Type_Value to "NACIONALIDAD"
+    Set Type_Value to "NACION"
 End_Object
 
 Class cjugadorDataDictionary is a DataDictionary
@@ -16,9 +16,11 @@ Class cjugadorDataDictionary is a DataDictionary
         Set Main_File to jugador.File_Number
 
         Set Add_Server_File to equipo.File_Number
-
+        
         Set Add_Client_File to hijojugador.File_Number
         Set Add_Client_File to jugadorposicion.File_Number
+        
+        Set ParentNullAllowed equipo.File_Number to True
 
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
