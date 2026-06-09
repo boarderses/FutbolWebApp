@@ -35,8 +35,11 @@ Object oSelectJugadorPosicion is a cWebView
     End_Object 
 
     Object oposicion_DD is a cposicionDataDictionary
-    End_Object 
-
+    End_Object
+    
+    Object oposicionesTotales_DD is a cposicionDataDictionary
+    End_Object
+    
     Object ojugadorposicion_DD is a cjugadorposicionDataDictionary
         Set DDO_Server To ojugador_DD
         Set DDO_Server To oposicion_DD
@@ -45,26 +48,89 @@ Object oSelectJugadorPosicion is a cWebView
     Set Main_DD To ojugadorposicion_DD
     Set Server  To ojugadorposicion_DD
 
-
-    Object oList is a cWebList
-        Set piColumnSpan to 0
-        Set psCSSClass to "MobileList"
-        Set pbServerOnRowClick to True
+    Object oListTotales is a cWebList
+        Set Server to oposicionesTotales_DD
         Set pbFillHeight to True
+        Set piColumnSpan to 4
+        Set pbServerOnRowClick to True 
+        Set psCSSClass to "MobileList"
+        Set piSortColumn to 0 
         Set pbShowHeader to False
-        Set piSortColumn to 0
+        Set psLabel to "Posiciones"
+        Set pbShowLabel to True
+        Set peLabelPosition to lpTop
 
-        Object ojugadorID is a cWebColumn
-            Entry_Item jugador.ID
-            Set psCaption to "jugadorposicion.JugadorID"
-            Set piWidth to 124
+        Object oPosicionNombre_Col is a cWebColumn
+            Entry_Item posicion.Nombre
+            Set psCaption to "Posición"
+            Set peAlign to alignLeft
         End_Object 
+    End_Object
+    
+    Object oQuitar_Btn is a cWebButton
+        Set psCaption to "<-"
+        Set piColumnIndex to 5
+        
+        Procedure OnClick
+            
+            Send Request_Delete of ojugadorposicion_DD
+            Send RefreshListFromDD of oList
+        End_Procedure                   
+    End_Object
 
-        Object oposicionID is a cWebColumn
-            Entry_Item posicion.ID
-            Set psCaption to "jugadorposicion.PosicionID"
-            Set piWidth to 124
-        End_Object 
+    Object oAnadir_Btn is a cWebButton
+        Set psCaption to "->"
+        Set piColumnIndex to 6
+        
+        Procedure OnClick
+            
+            Integer iPosicion iJugador
+            Boolean bFound
+            
+            Get Field_Current_Value of oposicionesTotales_DD Field posicion.ID to iPosicion
+            Get Field_Current_Value of ojugador_DD Field jugador.ID to iJugador
+            Send Clear of ojugadorposicion_DD
+            Move iPosicion to jugadorposicion.PosicionID
+            Move iJugador to jugadorposicion.JugadorID
+            Send Request_Find of ojugadorposicion_DD EQ jugadorposicion.File_Number 2
+            Move Found to bFound 
+            
+            If (bFound) Begin
+               Send ShowInfoBox "Ya tiene esa posición asignada"
+            End
+            Else Begin
+                Send Clear of oposicion_DD
+                Move iPosicion to posicion.ID
+                Send Request_Find of oposicion_DD EQ posicion.File_Number 1
+                Move Found to bFound
+                
+                If (bFound) ;
+                    Send Request_Save of ojugadorposicion_DD
+                Else;
+                    Send ShowInfoBox "No existe la posicion seleccionada"
+            End
+            
+            Send RefreshListFromDD of oList
+        End_Procedure
+    End_Object    
+    
+    Object oList is a cWebList
+        Set pbFillHeight to True
+        Set piColumnSpan to 4
+        Set piColumnIndex to 8
+        Set pbServerOnRowClick to True 
+        Set psCSSClass to "MobileList"
+        Set piSortColumn to 0 
+        Set pbShowHeader to False
+        Set psLabel to "Posiciones del jugador"
+        Set pbShowLabel to True
+        Set peLabelPosition to lpTop
+
+        Object oPosicionNombre_Col is a cWebColumn
+            Entry_Item posicion.Nombre
+            Set psCaption to "Posición del jugador"
+            Set peAlign to alignLeft
+        End_Object   
 
         Object oDetailButton is a cWebColumnButton
             Set psCaption to "btn"
@@ -176,6 +242,8 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
                 // This may be the start of a drilldown query or this may be used for some kind of custom query.
 
         Case End
+        
+        Send RefreshListFromDD of oListTotales
 
     End_Procedure
 
