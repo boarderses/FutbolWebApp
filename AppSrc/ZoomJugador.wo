@@ -113,7 +113,7 @@ Object oZoomJugador is a cWebView
             End_Procedure
         End_Object 
         
-        Object oListaPosicionJugador is a cWebList
+        Object oListaPosicionJugador is a cWebList           
             Set psLabel to "Posiciones"
             Set pbShowLabel to True
             Set peLabelPosition to lpTop
